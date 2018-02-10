@@ -1,0 +1,16 @@
+[
+{
+  "modid": "jtrent238ninjastarmod",
+  "name": "jtrent238's NinjaStar Mod",
+  "description": "Adds NinjaStars to Minecraft",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["jtrent238"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
