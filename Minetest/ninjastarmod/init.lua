@@ -9,7 +9,7 @@ LAVA_VISC = 7
 LIGHT_MAX = 14
 
 -- Definitions made by this mod that other mods can use too
-default = {}
+ninjastarmod = {}
 
 
 -- Set a noticeable inventory formspec for players
@@ -20,6 +20,19 @@ minetest.register_on_joinplayer(function(player)
 	minetest.after(2.0, cb, player)
 end)
 
+function ninjastarmod.spawn_ninjastar(pos, start, player)
+	if ninjastarmod.is_ninjastar(star)	then
+		return minetest.add_entity(pos, star.."_entity")
+	elseif minetest.registered_items[star].throwing_entity then
+		if type(minetest.registered_items[star].throwing_entity) == string then
+			return minetest.add_entity(pos, minetest.registered_items[star].throwing_entity)
+		else -- Type is a function
+			return minetest.registered_items[star].throwing_entity(pos, player)
+		end
+	else
+		obj = minetest.add_entity(pos, "_builtin:item", star)
+	end
+end
 
 -- ITEMS
 
@@ -58,96 +71,3 @@ minetest.register_craftitem('ninjastarmod:ItemNinjaStar_mese', {
     inventory_image = 'ItemNinjaStar_mese.png',
     stack_max = 64,
 })
-
--- THROWABLES
-
-throwing.register_arrow("ninjastarmod:ItemNinjaStar_wood", {
-	itemcraft = "ninjastarmod:ItemNinjaStar_wood",
-	craft_quantity = 16,
-	description = "ItemNinjaStar_wood",
-	tiles = {"ItemNinjaStar_wood.png"},
-	target = throwing.target_object,
-	on_hit_sound = "NinjaStarHit",
-	on_hit = function(pos, _, _, object, hitter)
-		object:punch(hitter, 1, {
-			full_punch_interval = 1,
-			damage_groups = {fleshy = 3}
-		})
-	end
-})
-
-throwing.register_arrow("ninjastarmod:ItemNinjaStar_stone", {
-	itemcraft = "ninjastarmod:ItemNinjaStar_stone",
-	craft_quantity = 16,
-	description = "ItemNinjaStar_stone",
-	tiles = {"ItemNinjaStar_stone.png"},
-	target = throwing.target_object,
-	on_hit_sound = "NinjaStarHit",
-	on_hit = function(pos, _, _, object, hitter)
-		object:punch(hitter, 1, {
-			full_punch_interval = 1,
-			damage_groups = {fleshy = 3}
-		})
-	end
-})
-
-throwing.register_arrow("ninjastarmod:ItemNinjaStar_iron", {
-	itemcraft = "ninjastarmod:ItemNinjaStar_iron",
-	craft_quantity = 16,
-	description = "ItemNinjaStar_iron",
-	tiles = {"ItemNinjaStar_iron.png"},
-	target = throwing.target_object,
-	on_hit_sound = "NinjaStarHit",
-	on_hit = function(pos, _, _, object, hitter)
-		object:punch(hitter, 1, {
-			full_punch_interval = 1,
-			damage_groups = {fleshy = 3}
-		})
-	end
-})
-
-throwing.register_arrow("ninjastarmod:ItemNinjaStar_gold", {
-	itemcraft = "ninjastarmod:ItemNinjaStar_gold",
-	craft_quantity = 16,
-	description = "ItemNinjaStar_gold",
-	tiles = {"ItemNinjaStar_mese.png"},
-	target = throwing.target_object,
-	on_hit_sound = "NinjaStarHit",
-	on_hit = function(pos, _, _, object, hitter)
-		object:punch(hitter, 1, {
-			full_punch_interval = 1,
-			damage_groups = {fleshy = 3}
-		})
-	end
-})
-
-throwing.register_arrow("ninjastarmod:ItemNinjaStar_mese", {
-	itemcraft = "ninjastarmod:ItemNinjaStar_mese",
-	craft_quantity = 16,
-	description = "ItemNinjaStar_mese",
-	tiles = {"ItemNinjaStar_mese.png"},
-	target = throwing.target_object,
-	on_hit_sound = "NinjaStarHit",
-	on_hit = function(pos, _, _, object, hitter)
-		object:punch(hitter, 1, {
-			full_punch_interval = 1,
-			damage_groups = {fleshy = 3}
-		})
-	end
-})
-
-throwing.register_arrow("ninjastarmod:ItemNinjaStar_diamond", {
-	itemcraft = "ninjastarmod:ItemNinjaStar_diamond",
-	craft_quantity = 16,
-	description = "ItemNinjaStar_diamond",
-	tiles = {"ItemNinjaStar_diamond.png"},
-	target = throwing.target_object,
-	on_hit_sound = "NinjaStarHit",
-	on_hit = function(pos, _, _, object, hitter)
-		object:punch(hitter, 1, {
-			full_punch_interval = 1,
-			damage_groups = {fleshy = 3}
-		})
-	end
-})
-
