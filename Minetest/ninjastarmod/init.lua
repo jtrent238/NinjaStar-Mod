@@ -83,6 +83,15 @@ local function throw_star(itemstack, player, index, throw_itself, new_stack)
 
 end
 	
+function ninjastarmod.make_star_def(def)
+		def.timer = 0
+		def.player = ""
+		def.on_step = star_step
+		def.data = {}
+		return def
+end
+
+	
 function ninjastarmod.spawn_ninjastar(pos, start, player)
 	if ninjastarmod.is_ninjastar(star)	then
 		return minetest.add_entity(pos, star.."_entity")
