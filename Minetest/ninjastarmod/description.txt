@@ -1,0 +1,1 @@
+Adds NinjaStars to Minetest.
