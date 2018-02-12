@@ -59,40 +59,95 @@ minetest.register_craftitem('ninjastarmod:ItemNinjaStar_mese', {
     stack_max = 64,
 })
 
--- CRAFTS
+-- THROWABLES
 
-minetest.register_craft({
-    output = 'hammermod:ItemCopperHammer',
-    recipe = {
-      {'default:copper_ingot','default:copper_ingot','default:copper_ingot'},
-      {'default:copper_ingot', 'group:stick', 'default:copper_ingot'},
-      {'', 'group:stick', ''},
-    }
+throwing.register_arrow("ninjastarmod:ItemNinjaStar_wood", {
+	itemcraft = "ninjastarmod:ItemNinjaStar_wood",
+	craft_quantity = 16,
+	description = "ItemNinjaStar_wood",
+	tiles = {"ItemNinjaStar_wood.png"},
+	target = throwing.target_object,
+	on_hit_sound = "NinjaStarHit",
+	on_hit = function(pos, _, _, object, hitter)
+		object:punch(hitter, 1, {
+			full_punch_interval = 1,
+			damage_groups = {fleshy = 3}
+		})
+	end
 })
 
-minetest.register_craft({
-    output = 'hammermod:ItemIronHammer',
-    recipe = {
-      {'default:iron_lump','default:iron_lump','default:iron_lump'},
-      {'default:iron_lump', 'group:stick', 'default:iron_lump'},
-      {'', 'group:stick', ''},
-    }
+throwing.register_arrow("ninjastarmod:ItemNinjaStar_stone", {
+	itemcraft = "ninjastarmod:ItemNinjaStar_stone",
+	craft_quantity = 16,
+	description = "ItemNinjaStar_stone",
+	tiles = {"ItemNinjaStar_stone.png"},
+	target = throwing.target_object,
+	on_hit_sound = "NinjaStarHit",
+	on_hit = function(pos, _, _, object, hitter)
+		object:punch(hitter, 1, {
+			full_punch_interval = 1,
+			damage_groups = {fleshy = 3}
+		})
+	end
 })
 
-minetest.register_craft({
-    output = 'hammermod:ItemSteelHammer',
-    recipe = {
-      {'default:steel_ingot','default:steel_ingot','default:steel_ingot'},
-      {'default:steel_ingot', 'group:stick', 'default:steel_ingot'},
-      {'', 'group:stick', ''},
-    }
+throwing.register_arrow("ninjastarmod:ItemNinjaStar_iron", {
+	itemcraft = "ninjastarmod:ItemNinjaStar_iron",
+	craft_quantity = 16,
+	description = "ItemNinjaStar_iron",
+	tiles = {"ItemNinjaStar_iron.png"},
+	target = throwing.target_object,
+	on_hit_sound = "NinjaStarHit",
+	on_hit = function(pos, _, _, object, hitter)
+		object:punch(hitter, 1, {
+			full_punch_interval = 1,
+			damage_groups = {fleshy = 3}
+		})
+	end
 })
 
-minetest.register_craft({
-    output = 'hammermod:ItemBronzeHammer',
-    recipe = {
-      {'default:bronze_ingot','default:bronze_ingot','default:bronze_ingot'},
-      {'default:bronze_ingot', 'group:stick', 'default:bronze_ingot'},
-      {'', 'group:stick', ''},
-    }
+throwing.register_arrow("ninjastarmod:ItemNinjaStar_gold", {
+	itemcraft = "ninjastarmod:ItemNinjaStar_gold",
+	craft_quantity = 16,
+	description = "ItemNinjaStar_gold",
+	tiles = {"ItemNinjaStar_mese.png"},
+	target = throwing.target_object,
+	on_hit_sound = "NinjaStarHit",
+	on_hit = function(pos, _, _, object, hitter)
+		object:punch(hitter, 1, {
+			full_punch_interval = 1,
+			damage_groups = {fleshy = 3}
+		})
+	end
 })
+
+throwing.register_arrow("ninjastarmod:ItemNinjaStar_mese", {
+	itemcraft = "ninjastarmod:ItemNinjaStar_mese",
+	craft_quantity = 16,
+	description = "ItemNinjaStar_mese",
+	tiles = {"ItemNinjaStar_mese.png"},
+	target = throwing.target_object,
+	on_hit_sound = "NinjaStarHit",
+	on_hit = function(pos, _, _, object, hitter)
+		object:punch(hitter, 1, {
+			full_punch_interval = 1,
+			damage_groups = {fleshy = 3}
+		})
+	end
+})
+
+throwing.register_arrow("ninjastarmod:ItemNinjaStar_diamond", {
+	itemcraft = "ninjastarmod:ItemNinjaStar_diamond",
+	craft_quantity = 16,
+	description = "ItemNinjaStar_diamond",
+	tiles = {"ItemNinjaStar_diamond.png"},
+	target = throwing.target_object,
+	on_hit_sound = "NinjaStarHit",
+	on_hit = function(pos, _, _, object, hitter)
+		object:punch(hitter, 1, {
+			full_punch_interval = 1,
+			damage_groups = {fleshy = 3}
+		})
+	end
+})
+
