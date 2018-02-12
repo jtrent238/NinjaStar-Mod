@@ -59,10 +59,10 @@ local function throw_star(itemstack, player, index, throw_itself, new_stack)
 	local dir = player:get_look_dir()
 	local velocity_factor = tonumber(minetest.settings:get("ninjastarmod.velocity_factor")) or 19
 	local horizontal_acceleration_factor = tonumber(minetest.settings:get("ninjastarmod.horizontal_acceleration_factor")) or -3
-	local vertical_acceleration = tonumber(minetest.settings:get(""ninjastarmod.vertical_acceleration")) or -10
+	local vertical_acceleration = tonumber(minetest.settings:get("ninjastarmod.vertical_acceleration")) or -10
 	
 	obj:setvelocity({x=dir.x*velocity_factor, y=dir.y*velocity_factor, z=dir.z*velocity_factor})
-	obj:setacceleration(x=dir.x*horizontal_acceleration_factor, y=vertical_acceleration, z=dir.z*horizontal_acceleration_factor)
+	obj:setacceleration({x=dir.x*horizontal_acceleration_factor, y=vertical_acceleration, z=dir.z*horizontal_acceleration_factor})
 	obj:setyaw(player:get_look_horizontal()-math.pi/2)
 	
 	if luanetity.on_throw_sound ~= "" then
